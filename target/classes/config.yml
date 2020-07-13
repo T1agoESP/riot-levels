@@ -1,0 +1,17 @@
+#Conexion a base de datos
+DB-url: "jdbc:mysql://localhost/statisticPL?serverTimezone=UCT"
+User: "root"
+Pass: ""
+#-------------------------------------------------
+#Mundo en el cual va a estar activo el plugin
+world: 'world'
+#Factor v y factor k, cuanto mayor sea v mas facil es 
+#subir de nivel en bajos niveles y mas dificil es subir en niveles altos
+#Cuanto mayor sea el valor k mas volatil va a ser el numero de puntos que ganas y pierdes
+factor_v: 10
+factor_k: 150
+#Factor p es una pieza clave a la hora de dar recompensas por subir de nivel
+#el valor que adquiera p se multiplicara por el nivel del jugador [level*factor_p]
+#para determinar cuantas monedas debe recibir, con lo cual el valor p es el minimo
+#que un jugador puede recibir, el maximo seria 100*factor_p
+factor_p: 25

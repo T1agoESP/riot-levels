@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.t1ago</groupId>
+  <artifactId>ServerLevels</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>ServerLevels</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <resources>
+        <resource>
+            <targetPath>.</targetPath>
+            <filtering>true</filtering>
+            <directory>src</directory>
+            <includes>
+                <include>*.yml</include>
+            </includes>
+        </resource>
+    </resources>
+    <finalName>TutorialBukkit</finalName>
+</build>
+  <repositories>
+  	<repository>
+        <id>spigot-repo</id>
+        <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+    </repository>
+    <repository>
+		<id>jitpack.io</id>
+		<url>https://jitpack.io</url>
+	</repository>
+  </repositories>
+  <dependencies>
+   <dependency>
+        <groupId>com.github.MilkBowl</groupId>
+        <artifactId>VaultAPI</artifactId>
+        <version>1.7</version>
+        <scope>provided</scope>
+    </dependency>
+  </dependencies>
+</project>

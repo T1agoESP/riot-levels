@@ -1,0 +1,14 @@
+name: RiotLevels
+version: 1.0
+author: T1ago
+main: org.t1ago.minecraft.riotlevels.RiotLevels.RiotLevels
+description: Un plugin que cuenta con un sistema de niveles con recompensas y un ranking
+
+commands:
+   stats:
+    description: Te muestra tus estadisticas
+    usage: /stats
+   riot:
+    description: Comando base para realizar diversas operaciones
+    usage: /riot <args>
+depend: [Vault]
