@@ -161,17 +161,17 @@ public class RiotCM implements CommandExecutor{
 									if(args.length>3)
 									{
 										int data=Integer.parseInt(args[3]);
-										mu.updateStats("NIVEL",data,u.getPlayer(),0,user);
-										u.getPlayer().sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"]"+ChatColor.GREEN+" La operacion se ha realizado correctamente");
+										mu.updateStats("LEVEL",data,u.getPlayer(),0,user);
+										u.getPlayer().sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"]"+ChatColor.GREEN+" The operation succeeded");
 									}
 									else 
 									{
-										u.getPlayer().sendMessage("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"Este comando debe usarse con argumentos"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.RESET+"]");
+										u.getPlayer().sendMessage("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"You have to pass some arguments"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.RESET+"]");
 									}
 								}
 								else 
 								{
-									u.getPlayer().sendMessage("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"Este comando debe usarse con argumentos"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.RESET+"]");
+									u.getPlayer().sendMessage("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"You have to pass some arguments"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.RESET+"]");
 								}
 							}
 							else if(args[1].equals("exp"))
@@ -185,22 +185,22 @@ public class RiotCM implements CommandExecutor{
 										double exp=Integer.parseInt(args[3]);
 										int data=Integer.parseInt(args[3]);
 										mu.updateStats("EXP",data,u.getPlayer(),exp,user);
-										u.getPlayer().sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"]"+ChatColor.GREEN+" La operacion se ha realizado correctamente");
+										u.getPlayer().sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"]"+ChatColor.GREEN+" The operation succeeded");
 									}
 									else 
 									{
-										u.getPlayer().sendMessage("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"Este comando debe usarse con argumentos"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.RESET+"]");
+										u.getPlayer().sendMessage("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"You have to pass some arguments"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.RESET+"]");
 									}
 								}
 								else 
 								{
-									u.getPlayer().sendMessage("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"Este comando debe usarse con argumentos"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.RESET+"]");
+									u.getPlayer().sendMessage("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"You have to pass some arguments"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.RESET+"]");
 								}
 							}
 						}
 						else 
 						{
-							u.getPlayer().sendMessage("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"Este comando debe usarse con argumentos"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.RESET+"]");
+							u.getPlayer().sendMessage("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"You have to pass some arguments"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.RESET+"]");
 						}
 					}
 					else if(args[0].equals("ranking")) 
@@ -209,9 +209,9 @@ public class RiotCM implements CommandExecutor{
 						{
 							try 
 							{
-							if(args[1].equalsIgnoreCase("exp") || args[1].equalsIgnoreCase("nombre") || args[1].equalsIgnoreCase("id"))
+							if(args[1].equalsIgnoreCase("exp") || args[1].equalsIgnoreCase("name") || args[1].equalsIgnoreCase("id"))
 							{
-							u.getPlayer().sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"]"+ChatColor.RED+" No se ha encontrado el ranking especificado");
+							u.getPlayer().sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"]"+ChatColor.RED+" The specified ranking could not be found");
 							}
 							else 
 							{
@@ -230,21 +230,21 @@ public class RiotCM implements CommandExecutor{
 									mu.getRanking(u.getPlayer(),args[1].toUpperCase(),nChosen);	
 								}
 							}
-							}catch(Exception e) { u.getPlayer().sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"]"+ChatColor.RED+" El criterio de busqueda es incorrecto"); }
+							}catch(Exception e) { u.getPlayer().sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"]"+ChatColor.RED+" The search tag could not be found"); }
 						}
 						else 
 						{
-							u.getPlayer().sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"]"+ChatColor.RED+" debes introducir un criterio de busqueda");
+							u.getPlayer().sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"]"+ChatColor.RED+" You have to pass a search tag, i.e 'kills'");
 						}
 					}
 					else 
 					{
-						u.getPlayer().sendMessage("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"No tienes los permisos suficientes"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.RESET+"]");
+						u.getPlayer().sendMessage("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"You don't have enough permissions to perform this command"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.RESET+"]");
 					}
 				}
 				else 
 				{
-					u.getPlayer().sendMessage("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"Este comando debe usarse con argumentos"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.RESET+"]");
+					u.getPlayer().sendMessage("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"You have to pass some arguments"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.RESET+"]");
 				}
 			}
 			
