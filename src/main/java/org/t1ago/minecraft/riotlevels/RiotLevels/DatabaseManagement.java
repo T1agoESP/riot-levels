@@ -30,7 +30,7 @@ public class DatabaseManagement {
 		String bbdd=plugin.getConfig().getString("DB-url");
 		String user=plugin.getConfig().getString("User");
 		String pass=plugin.getConfig().getString("Pass");
-		String query="insert into usuarios(ID,NOMBRE,KILLS,DEATHS,KILLSTREAK,NIVEL,EXP) values('"+id+"','"+nombre+"','"+kills+"','"+deaths+"','"+killstreak+"','"+level+"','"+exp+"')";
+		String query="insert into usuarios(ID,NAME,KILLS,DEATHS,KILLSTREAK,LEVEL,EXP) values('"+id+"','"+nombre+"','"+kills+"','"+deaths+"','"+killstreak+"','"+level+"','"+exp+"')";
 		
 		try 
 		{
@@ -40,8 +40,8 @@ public class DatabaseManagement {
 		Statement st=con.createStatement();
 		st.executeUpdate(query);
 		
-		}catch(SQLException e){ plugin.getLogger().info("Se ha producido un error conectandose con la base de datos registrando a un usuario");
-		}catch(ClassNotFoundException e) { plugin.getLogger().info("No se ha encontrado el driver mysql"); }
+		}catch(SQLException e){ plugin.getLogger().info("An error has occurred when trying to access the database");
+		}catch(ClassNotFoundException e) { plugin.getLogger().info("MySQL driver not found"); }
 	}
 	
 	public void obtenUsuario(final Player p, Object[] estadisticaArray) 
@@ -98,8 +98,8 @@ public class DatabaseManagement {
 			int level=(Integer)estadisticaArray[5];
 			double exp=(Double)estadisticaArray[6];*/
 		
-		}catch(SQLException e){ plugin.getLogger().info("Se ha producido un error conectandose con la base de datos obteniendo los datos de un usuario");
-		}catch(ClassNotFoundException e) { plugin.getLogger().info("No se ha encontrado el driver mysql");}
+		}catch(SQLException e){ plugin.getLogger().info("An error has occurred when trying to access the database");
+		}catch(ClassNotFoundException e) { plugin.getLogger().info("MySQL driver not found");}
 		
 	}
 	
@@ -272,7 +272,7 @@ public class DatabaseManagement {
 		String user=plugin.getConfig().getString("User");
 		String pass=plugin.getConfig().getString("Pass");
 		String queryget="select * from usuarios where ID=?";
-		String queryset="update usuarios set KILLS=?,DEATHS=?,KILLSTREAK=?,NIVEL=?,EXP=? where ID=?";
+		String queryset="update usuarios set KILLS=?,DEATHS=?,KILLSTREAK=?,LEVEL=?,EXP=? where ID=?";
 		
 		try 
 		{
@@ -290,7 +290,7 @@ public class DatabaseManagement {
 			kills=rs.getInt("KILLS");
 			deaths=rs.getInt("DEATHS");
 			killstreak=rs.getInt("KILLSTREAK");
-			level=rs.getInt("NIVEL");
+			level=rs.getInt("LEVEL");
 			exp=rs.getDouble("EXP");
 			
 			ps.setString(1,dead.getUniqueId().toString());
@@ -304,7 +304,7 @@ public class DatabaseManagement {
 			kills2=rs.getInt("KILLS");
 			deaths2=rs.getInt("DEATHS");
 			killstreak2=rs.getInt("KILLSTREAK");
-			level2=rs.getInt("NIVEL");
+			level2=rs.getInt("LEVEL");
 			exp2=rs.getDouble("EXP");
 			
 			int v=plugin.getConfig().getInt("factor_v");
@@ -326,23 +326,23 @@ public class DatabaseManagement {
 			{
 				exp=exp+150;
 				killer.sendMessage(("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"RiotLevels"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.BLUE+ChatColor.RESET+"]"));
-				killer.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"Has recibido "+ChatColor.GREEN+"+"+150.0+ChatColor.RED+" puntos!");	
+				killer.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"You've received "+ChatColor.GREEN+"+"+150.0+ChatColor.RED+" points!");	
 			}
 			else if(level==100)
 			{
 				exp+=expplus1;
 				killer.sendMessage(("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"RiotLevels"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.BLUE+ChatColor.RESET+"]"));
-				killer.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"Enhorabuena! Teniendo un "+ChatColor.GRAY+round(P1*100,2)+ChatColor.RED+"% de posibilidades de ganar");
-				killer.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"basado en tu nivel has "+ChatColor.GREEN+"GANADO");
+				killer.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"Congrats! Having a chance of "+ChatColor.GRAY+round(P1*100,2)+ChatColor.RED+"% of winning");
+				killer.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"based on your level, you've "+ChatColor.GREEN+"WON");
 			}
 			else 
 			{
 				exp=exp+expplus1;
 				
 				killer.sendMessage(("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"RiotLevels"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.BLUE+ChatColor.RESET+"]"));
-				killer.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"Enhorabuena! Teniendo un "+ChatColor.GRAY+round(P1*100,2)+ChatColor.RED+"% de posibilidades de ganar");
-				killer.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"basado en tu nivel has "+ChatColor.GREEN+"GANADO");
-				killer.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"Has recibido "+ChatColor.GREEN+"+"+round(expplus1,2)+ChatColor.RED+" puntos!");	
+				killer.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"Congrats! Having a chance of "+ChatColor.GRAY+round(P1*100,2)+ChatColor.RED+"% of winning");
+				killer.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"based on your level, you've "+ChatColor.GREEN+"WON");
+				killer.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"You've received "+ChatColor.GREEN+"+"+round(expplus1,2)+ChatColor.RED+" points!");	
 			}
 			
 			if(level>0)
