@@ -353,17 +353,17 @@ public class DatabaseManagement {
 					{
 						exp=exp-500;
 						level++;
-						killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Felicidades, has subido al nivel "+ChatColor.GREEN+level);
+						killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Congrats, you've leveled up to "+ChatColor.GREEN+level);
 						cantidad=level*Integer.parseInt(plugin.getConfig().getString("factor_p"));
 						EconomyResponse er=eco.depositPlayer(killer,cantidad);
 						
 						if(er.transactionSuccess())
 						{
-							killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.GREEN+"Has recibido "+ChatColor.GRAY+cantidad+"$"+ChatColor.GREEN+" debido a tu reciente subida de nivel");
+							killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.GREEN+"You've received "+ChatColor.GRAY+cantidad+"$"+ChatColor.GREEN+" due to your recent level up");
 						}
 						else 
 						{
-							killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Ha ocurrido un error intentando transferirte "+ChatColor.GRAY+cantidad+"$");
+							killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"An error has occurred while transfering you "+ChatColor.GRAY+cantidad+"$");
 						}
 						
 					}
@@ -374,17 +374,17 @@ public class DatabaseManagement {
 					{
 						exp=exp-1000;
 						level++;
-						killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Felicidades, has subido al nivel "+ChatColor.GREEN+level);
+						killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Congrats, you've leveled up to "+ChatColor.GREEN+level);
 						cantidad=level*Integer.parseInt(plugin.getConfig().getString("factor_p"));
 						EconomyResponse er=eco.depositPlayer(killer,cantidad);
 						
 						if(er.transactionSuccess())
 						{
-							killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.GREEN+"Has recibido "+ChatColor.GRAY+cantidad+"$"+ChatColor.GREEN+" debido a tu reciente subida de nivel");
+							killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.GREEN+"You've received "+ChatColor.GRAY+cantidad+"$"+ChatColor.GREEN+" due to your recent level up");
 						}
 						else 
 						{
-							killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Ha ocurrido un error intentando transferirte "+ChatColor.GRAY+cantidad+"$");
+							killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"An error has occurred while transfering you "+ChatColor.GRAY+cantidad+"$");
 						}
 					}
 				}
@@ -403,18 +403,18 @@ public class DatabaseManagement {
 				{
 					exp=exp-500;
 					level++;
-					killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Felicidades, has subido al nivel "+ChatColor.GREEN+level);
-					killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Eso significa que ahora vas a ganar puntos basados en un sistema de ELO, pero a su vez significa que a partir de ahora puedes perder puntos!");
+					killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Congrats, you've leveled up to "+ChatColor.GREEN+level);
+					killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Which means that now you'll earn points based on an ELO system, which as well means that you may lose points!");
 					cantidad=level*Integer.parseInt(plugin.getConfig().getString("factor_p"));
 					EconomyResponse er=eco.depositPlayer(killer,cantidad);
 					
 					if(er.transactionSuccess())
 					{
-						killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.GREEN+"Has recibido "+ChatColor.GRAY+cantidad+"$"+ChatColor.GREEN+" debido a tu reciente subida de nivel");
+						killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.GREEN+"You've received "+ChatColor.GRAY+cantidad+"$"+ChatColor.GREEN+" due to your recent level up");
 					}
 					else 
 					{
-						killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Ha ocurrido un error intentando transferirte "+ChatColor.GRAY+cantidad+"$");
+						killer.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"An error has occurred while transfering youe "+ChatColor.GRAY+cantidad+"$");
 					}
 				}
 			}
@@ -422,16 +422,16 @@ public class DatabaseManagement {
 			if(level2<1)
 			{
 				dead.sendMessage(("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"RiotLevels"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.BLUE+ChatColor.RESET+"]"));
-				dead.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"Lo sentimos! has "+ChatColor.DARK_RED+"PERDIDO");
-				dead.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"Has perdido "+ChatColor.DARK_RED+"-"+0.0+ChatColor.RED+" puntos!");	
+				dead.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"Better luck next time! you've "+ChatColor.DARK_RED+"LOST");
+				dead.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"You've lost "+ChatColor.DARK_RED+"-"+0.0+ChatColor.RED+" points!");	
 			}
 			else 
 			{
 				exp2=exp2+expminus2;
 				
 				dead.sendMessage(("["+ChatColor.DARK_PURPLE+""+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.GOLD+""+ChatColor.BOLD+"RiotLevels"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+"|"+ChatColor.BLUE+ChatColor.RESET+"]"));
-				dead.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"Mejor suerte la siguiente vez! Teniendo un "+ChatColor.GRAY+round(P2*100,2)+ChatColor.RED+"% de posibilidades de ganar basado en tu nivel has "+ChatColor.DARK_RED+"PERDIDO");
-				dead.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"Has perdido "+ChatColor.DARK_RED+expminus2+ChatColor.RED+" puntos!");
+				dead.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"Better luck next time! Having a chance of "+ChatColor.GRAY+round(P2*100,2)+ChatColor.RED+"% of winning based on your level, you've "+ChatColor.DARK_RED+"LOST");
+				dead.sendMessage(ChatColor.GOLD+""+ChatColor.MAGIC+"1"+ChatColor.RESET+ChatColor.RED+"You've lost "+ChatColor.DARK_RED+expminus2+ChatColor.RED+" points!");
 			}
 			
 			
