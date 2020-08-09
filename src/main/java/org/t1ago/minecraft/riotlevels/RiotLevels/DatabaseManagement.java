@@ -444,13 +444,13 @@ public class DatabaseManagement {
 					{
 						level2--;
 						exp2=500+expminus2;
-						dead.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Lo sentimos, has bajado a nivel "+ChatColor.DARK_RED+level2);
+						dead.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Damn it, you've leveled down to "+ChatColor.DARK_RED+level2);
 					}
 					else
 					{
 						level2--;
 						exp2=1000+expminus2;
-						dead.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Lo sentimos, has bajado a nivel "+ChatColor.DARK_RED+level2);
+						dead.sendMessage("["+ChatColor.GOLD+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"] "+ChatColor.RED+"Damn it, you've leveled down to "+ChatColor.DARK_RED+level2);
 					}
 				}
 			}
@@ -520,7 +520,7 @@ public class DatabaseManagement {
 		
 		while(rs.next()) return new User(id.fromString(rs.getString(1)),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getDouble(7));
 		
-		}catch(SQLException e) { p.sendMessage("["+ChatColor.GOLD+""+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"]"+ChatColor.RED+" Error encontrando tus estadisticas *");}
+		}catch(SQLException e) { p.sendMessage("["+ChatColor.GOLD+""+ChatColor.BOLD+"RiotLevels"+ChatColor.RESET+"]"+ChatColor.RED+" An error has occurred while getting your stats");}
 		finally { try {
 			con.close();
 		} catch (SQLException e1) {
@@ -541,7 +541,7 @@ public class DatabaseManagement {
 		String ddbb=plugin.getConfig().getString("DB-url");
 		String user=plugin.getConfig().getString("User");
 		String pass=plugin.getConfig().getString("Pass");
-		String query="update usuarios set "+action+"=? where NOMBRE=?";
+		String query="update usuarios set "+action+"=? where NAME=?";
 		
 		Connection con=null;
 		PreparedStatement ps=null;
@@ -565,7 +565,7 @@ public class DatabaseManagement {
 		}
 		
 		ps.executeUpdate();
-		}catch(SQLException e) { plugin.getLogger().info("Error conectando con la base de datos"); }
+		}catch(SQLException e) { plugin.getLogger().info("An error has occurred while trying to connect to the database"); }
 	}
 	
 	public void getRanking(String action,Player p,int max) throws Exception
@@ -576,11 +576,11 @@ public class DatabaseManagement {
 		
 		if(action.equalsIgnoreCase("level"))
 		{
-			action="nivel";
+			action="LEVEL";
 		}
 		
-		String query="select NOMBRE,"+action+" from usuarios order by "+action+" desc";
-		String queryB="select NOMBRE,"+action+" from usuarios order by "+action+" asc";
+		String query="select NAME,"+action+" from usuarios order by "+action+" desc";
+		String queryB="select NAME,"+action+" from usuarios order by "+action+" asc";
 		Connection con=null;
 		Statement ps=null;
 		ResultSet rs=null;
@@ -608,20 +608,20 @@ public class DatabaseManagement {
 			rs.beforeFirst();
 			int puesto=1;
 			
-			p.sendMessage("["+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+":"+ChatColor.GOLD+ChatColor.BOLD+"Ranking de "+ChatColor.RED+ChatColor.BOLD+action.toUpperCase()+ChatColor.BLACK+":"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.RESET+"]");
+			p.sendMessage("["+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.BLACK+":"+ChatColor.GOLD+ChatColor.BOLD+"Ranking of "+ChatColor.RED+ChatColor.BOLD+action.toUpperCase()+ChatColor.BLACK+":"+ChatColor.DARK_PURPLE+ChatColor.MAGIC+"123"+ChatColor.RESET+"]");
 			while(rs.next()) 
 			{
 				if(puesto>max)
 				{}
 				else 
 				{
-				p.sendMessage(""+ChatColor.GOLD+ChatColor.MAGIC+"1"+ChatColor.BLUE+"=>"+ChatColor.RESET+ChatColor.GOLD+puesto+". "+ChatColor.RED+rs.getString("NOMBRE")+"  "+rs.getInt(action)); 
+				p.sendMessage(""+ChatColor.GOLD+ChatColor.MAGIC+"1"+ChatColor.BLUE+"=>"+ChatColor.RESET+ChatColor.GOLD+puesto+". "+ChatColor.RED+rs.getString("NAME")+"  "+rs.getInt(action)); 
 				puesto+=1;
 				}
 			}
 		}
 		
-		}catch(SQLException e) { plugin.getLogger().info("Error conectandose con la base de datos :: getRanking"); }
+		}catch(SQLException e) { plugin.getLogger().info("An error has occurred while trying to connect to the database :: getRanking"); }
 		finally { con.close(); rs.close(); }
 	}
 	
